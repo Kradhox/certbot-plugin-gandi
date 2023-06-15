@@ -36,6 +36,9 @@ elif 'bdist_wheel' in sys.argv[1:]:
 elif sys.version_info < (3,3):
     install_requires.append('mock')
 
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
 setup(
     name='certbot-plugin-gandi',
     version=version,

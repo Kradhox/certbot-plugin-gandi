@@ -68,7 +68,6 @@ setup(
         'Topic :: System :: Systems Administration',
         'Topic :: Utilities',
         ],
-    packages=find_packages(),
     include_package_data=True,
     install_requires=install_requires,
     entry_points={

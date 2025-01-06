@@ -6,7 +6,7 @@ from setuptools import __version__ as setuptools_version
 from setuptools import find_packages
 from setuptools import setup
 
-version = '1.4.3'
+version = '3.1.0.dev0'
 
 # Remember to update local-oldest-requirements.txt when changing the minimum
 # acme/certbot version.
@@ -14,12 +14,13 @@ install_requires = [
     'setuptools',
     'zope.interface',
     'requests>=2.4.2',
+    'dns-lexicon>=3.15.1'
 ]
 
 if not os.environ.get('SNAP_BUILD'):
     install_requires.extend([
-        'acme>=0.31.0',
-        'certbot>=1.1.0',
+        'acme>={version}',
+        'certbot>={version}',
     ])
 elif 'bdist_wheel' in sys.argv[1:]:
     raise RuntimeError('Unset SNAP_BUILD when building wheels '
@@ -49,7 +50,7 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/obynio/certbot-plugin-gandi",
     packages=find_packages(),
-    python_requires=' >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
+    python_requires='>=3.9',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Plugins',
@@ -57,13 +58,11 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: POSIX :: Linux',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Security',
         'Topic :: System :: Installation/Setup',
